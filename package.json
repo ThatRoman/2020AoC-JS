@@ -1,0 +1,22 @@
+{
+  "name": "2020aoc-js",
+  "version": "1.0.0",
+  "description": "Advent of Code 2020",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThatRoman/2020AoC-JS.git"
+  },
+  "author": "RK",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThatRoman/2020AoC-JS/issues"
+  },
+  "homepage": "https://github.com/ThatRoman/2020AoC-JS#readme",
+  "dependencies": {
+    "fs": "0.0.1-security"
+  }
+}

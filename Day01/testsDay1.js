@@ -1,5 +1,5 @@
 console.time('overall time');
-import fs from 'fs';
+const fs = require('fs');
 
 const filename = './2020sum.txt';
 let counter = 0;
