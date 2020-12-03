@@ -8,7 +8,6 @@ fs.readFile(filename, 'utf8', function(err, data) {
     if (err) throw err;
 
     const dataArr = data.split('\n');
-    const arrLength =dataArr[0].length;
     let counter = 0;
     let index = 0;
 
@@ -20,7 +19,7 @@ fs.readFile(filename, 'utf8', function(err, data) {
         // 3. add to the global counter each time the symbol is equals to "#"
         if(element[index] === "#") {
             counter++;
-            // console.log(`Found a tree at line ${i}`)
+            // console.log(`Found a tree on line ${i}`)
         }       
 
         index = index + 3;
@@ -29,8 +28,7 @@ fs.readFile(filename, 'utf8', function(err, data) {
         if(index > element.length - 1){
             index = index - element.length;
         }
+         
     }); 
     console.log(`Program has found ${counter} trees on your path given the input`)
- 
-  
 });
