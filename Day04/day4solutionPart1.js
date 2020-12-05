@@ -15,16 +15,18 @@ fs.readFile(filename, 'utf8', function(err, data) {
 
     let numberOfValidPassports = 0;
     dataArr.forEach(subArr => {
-        
+        // now loop through subElements and check if required fields ('hgt:', 'byr:' etc) are present, then add to the counter
+        // reset counter for each subElement. If after looping through a subElement, counter is > 7 >> we've got
+        // a valid passport
         let counter = 0;
         subArr.forEach(passportDataString => {
-            if (passportDataString.includes('hgt') ||
-            passportDataString.includes('byr') ||
-            passportDataString.includes('iyr') ||
-            passportDataString.includes('eyr') ||
-            passportDataString.includes('hcl') ||
-            passportDataString.includes('ecl') ||
-            passportDataString.includes('pid')
+            if (passportDataString.includes('hgt:') ||
+            passportDataString.includes('byr:') ||
+            passportDataString.includes('iyr:') ||
+            passportDataString.includes('eyr:') ||
+            passportDataString.includes('hcl:') ||
+            passportDataString.includes('ecl:') ||
+            passportDataString.includes('pid:')
             ){ 
                 counter++; 
                 console.log('For this string total counter is:', counter)}
