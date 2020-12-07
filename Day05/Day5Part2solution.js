@@ -53,7 +53,7 @@ fs.readFile(filename, 'utf8', function(err, data) {
     // Then you have to multiply the row number by 8 and add the missing spot number
     for (let i=0; i < Object.keys(bookingList).length; i++) {
         if (bookingList[i].length === 7){
-          console.log(bookingList[i], i)
+          console.log(bookingList[i],'missing spots at row #', i)
     
         }
     }
