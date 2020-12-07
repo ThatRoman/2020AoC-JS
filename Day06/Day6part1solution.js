@@ -3,7 +3,8 @@ const path = require('path');
 
 const filename = path.join(__dirname, './Day6part1inputDeclarations.txt');
 
-function removeDuplicateCharacters(string) {
+function populateRepeatingChar(string) {
+  console.log('working with:', string)
     return string
       .split('')
       .filter(function(item, pos, self) {
@@ -24,7 +25,7 @@ fs.readFile(filename, 'utf8', function(err, data) {
 
     let totalCount = 0;
     dataArr.forEach( s => {
-        let x = removeDuplicateCharacters(s).length;
+        let x = populateRepeatingChar(s).length;
         console.log('adding', x, 'to totalCount which is currently =', totalCount, 'and the current string is ', s)
         totalCount = totalCount + x
     })
