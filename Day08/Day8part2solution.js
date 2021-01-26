@@ -19,54 +19,33 @@ function executeInstructionSet(instructions){
   let acc = 0;
   let index = 0;
   let seenIndexes = new Set();
-  while(!seenIndexes.has(index) && index < instructions.length){
+  while(!seenIndexes.has(index)){
+    console.log('here I am. the index is:', index, 'seen - ', seenIndexes)
     readLine(index)
   }
-  // console.log('after a while', seenIndexes, seenIndexes.has(index), index)
+  console.log('after a while', seenIndexes, seenIndexes.has(index), index)
 
   function readLine(i){
     let line = instructions[i];
+    console.log(line.substring(0,3), )
     seenIndexes.add(i);
     if(line.substring(0,3) === 'nop'){
       index++;
-      // console.log('skipping. the index now', index)
+      console.log('skipping. the index now', index)
     }
     else if(line.substring(0,3) === 'acc'){
       index++;
       acc+= Number(line.split(/\s/)[1]);
-      // console.log('adding to acc. It is now = ', acc, 'the index now', index)
+      console.log('adding to acc. It is now = ', acc, 'the index now', index)
     }
     else if(line.substring(0,3) === 'jmp'){
       index += Number(line.split(/\s/)[1]);
-      // console.log('jumping. the index now', index)
+      console.log('jumping. the index now', index)
     }
   }
   // One while loop exits - return string where it stopped
-  if (!seenIndexes.has(index))
-    console.log(acc)
+  return acc
 }
 
 
-//for each string replace jmp with nop and run executeInstructionSet to see if it reaches the EOF;
-
-for (let i = 0; i < instructions.length; i++){
-  replaceWrongInstruction(i);
-  executeInstructionSet(instructions);
-  // replace back and try next
-  replaceWrongInstruction(i)
-}
-
-// helper to swap jmp and nop
-function replaceWrongInstruction(i){
-  let line = instructions[i];
-    // console.log('changing instruction for line:', line)
-    let [a, b] = line.split(/\s/g);
-    // console.log(a,b, 'a & b')
-    if(a === 'nop'){
-      instructions[i] = 'jmp ' + b;
-    } 
-    else if(a === 'jmp'){
-      instructions[i] = 'nop ' + b;
-    } 
-    // console.log('the line after the swap - ', instructions[i])
-}
+console.log(executeInstructionSet(instructions))
